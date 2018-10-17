@@ -9,12 +9,34 @@ rows = glooey.VBox()
 mainGui.add(rows)
 
 #---Display---#
-lable = glooey.Label("Hell Apple")
+lable = glooey.Label("Welcome to Password Checker")
 rows.add(lable)
-lable2 = glooey.Label("Hell Banana")
-rows.add(lable2)
-lable3 = glooey.Label("Hell Cantalup")
-rows.add(lable3)
+
+form = glooey.Form("Enter your password: ")
+rows.add(form)
+
+button = glooey.Button("Click to check")
+
+def buttonClick(widget):
+    print("check")
+    if form.text == "Enter your password: 1234":
+        result = glooey.Label("Your password is weak")
+        rows.add(result)
+    elif form.text == "Enter your password: 12345678":
+        result = glooey.Label("Your password is weak")
+        rows.add(result)
+    elif form.text == "Enter your password: qwerty":
+        result = glooey.Label("Your password is weak")
+        rows.add(result)
+    elif form.text == "Enter your password: password":
+        result = glooey.Label("Your password is weak")
+        rows.add(result)
+    else:
+        result = glooey.Label("Your password is STRONG!!")
+        rows.add(result)
+
+button.push_handlers(on_click=buttonClick)
+rows.add(button)
 
 #---Run---#
 pyglet.app.run()
