@@ -8,13 +8,18 @@ mainGui = glooey.Gui(mainWindow)
 rows = glooey.VBox()
 mainGui.add(rows)
 
-#---Display---#
-lable = glooey.Label("Welcome to Password Checker")
-rows.add(lable)
+#---Customize Class---#
+class wow(glooey.Label):
+    custom_font_size = 20
+    custom_bold = True
+    custom_color = "002050"
+    custom_alignment = "center"
 
+#---Display---#
+lable = wow("Welcome to Password Checker")
+rows.add(lable)
 form = glooey.Form("Enter your password: ")
 rows.add(form)
-
 button = glooey.Button("Click to check")
 
 def buttonClick(widget):
